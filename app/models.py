@@ -28,15 +28,6 @@ class User(BaseModel):
         kwargs['senha'] = User.gerar_senha_em_hash(kwargs.get('senha', 'mae123'))
         super().__init__(*args, **kwargs)
 
-    def __iter__(self):
-        yield "id", self.id
-        yield "nome", self.nome
-        yield "username", self.username
-        yield "cpf", self.cpf
-        yield "rg", self.rg
-        yield "criado_em", self.criado_em
-        yield "atualizado_em", self.atualizado_em
-
     @staticmethod
     def gerar_senha_em_hash(senha):
         return pwd.hash(senha)

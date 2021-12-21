@@ -1,4 +1,6 @@
+from typing import Any
 from datetime import datetime
+
 from pydantic import BaseModel
 
 
@@ -10,5 +12,5 @@ class UserReadingModel(BaseModel):
     criado_em: datetime
     atualizado_em: datetime
 
-    class Meta:
-        orm_meta = True
+    class Config:
+        orm_mode = True

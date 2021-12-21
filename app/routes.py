@@ -13,7 +13,7 @@ user_router = APIRouter()
 @user_router.get('/', response_model=List[UserReadingModel])
 def get_users() -> List[UserReadingModel]:
     users = User.select()
-    return [dict(user) for user in users]
+    return list(users)
 
 
 @user_router.get('/create/random', response_model=UserReadingModel)
